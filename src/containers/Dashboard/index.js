@@ -14,6 +14,8 @@ class Dashboard extends Component {
     // Initially, no file is selected
     selectedTemplate: null,
 
+    uploadingTempalte: false,
+
     // This will hold the metadata of the templates we've uploaded
     templatesRepository: {},
   };
@@ -29,6 +31,9 @@ class Dashboard extends Component {
     // Log metadata of selected template
     console.log(this.state.selectedTemplate);
 
+    // Signal the display of spinner
+    this.setState({uploadingTempalte: true});
+
     addCertificateTemplate(this.state.selectedTemplate).then((res) => {
       // Update templates repository
       const templateRepo = Object.assign(
@@ -37,12 +42,15 @@ class Dashboard extends Component {
           res.data,
       );
       this.setState({templatesRepository: templateRepo});
+
+      // Signal the removal of spinner
+      this.setState({uploadingTempalte: false});
     });
   };
 
   // Display uploaded templates
   onContentChange = () => {
-    if (this.state.selectedTemplate !== null) {
+    if (this.state.uploadingTempalte) {
       return <img src={spinner} className="mx-auto d-block" alt="spinner" />;
     }
 
