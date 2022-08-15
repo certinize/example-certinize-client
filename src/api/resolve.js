@@ -1,3 +1,8 @@
+/**
+ * Resolve HTTP response
+ * @param {any} promise
+ * @return {any}
+ */
 export async function resolve(promise) {
   const resolved = {
     data: null,
