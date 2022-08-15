@@ -1,1 +1,2 @@
-export const GATEWAY_ENDPOINT_URL = 'http://127.0.0.1:8000/api/v1';
+export const GATEWAY_ENDPOINT_URL =
+  'http://certinize-api-gateway.herokuapp.com/api/v1';
