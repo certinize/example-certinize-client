@@ -37,9 +37,9 @@ class Dashboard extends Component {
     addCertificateTemplate(this.state.selectedTemplate).then((res) => {
       // Update templates repository
       const templateRepo = Object.assign(
-          {},
-          this.state.templatesRepository,
-          res.data,
+        {},
+        this.state.templatesRepository,
+        res.data,
       );
       this.setState({templatesRepository: templateRepo});
 
